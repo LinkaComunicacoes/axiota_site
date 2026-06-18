@@ -1,0 +1,6 @@
+/* Estilos específicos de trabalhos-tecnicos.html */
+
+/* Variante preenchida do ícone via classe .fill */
+.material-symbols-outlined.fill {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

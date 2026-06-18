@@ -1,0 +1,93 @@
+/* ============================================================
+   MULTIMIN® 90 — Global Styles
+   ============================================================ */
+
+/* Material Symbols — base */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Sombra ambiente */
+.ambient-shadow {
+    box-shadow: 0 20px 40px -10px rgba(12, 41, 101, 0.05);
+}
+
+/* ── Pulse ring animation (decorative circles) ── */
+@keyframes pulse-ring {
+    0%, 100% { transform: scale(1);    opacity: 0.4;  }
+    50%       { transform: scale(1.08); opacity: 0.15; }
+}
+
+/* ── Ticker ── */
+@keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.ticker-wrap { overflow: hidden; }
+.ticker-inner { display: flex; width: max-content; animation: ticker 32s linear infinite; }
+.ticker-item {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.7);
+}
+.ticker-item::after { content: '◆'; color: #E6AD1E; margin: 0 1rem; }
+
+/* ── Float animation ── */
+@keyframes float { 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-8px) } }
+.float         { animation: float 4s ease-in-out infinite; }
+.float-delayed { animation: float 4s ease-in-out 1.5s infinite; }
+
+/* ── Mineral chip hover ── */
+.mineral-chip { transition: transform 0.2s, box-shadow 0.2s; }
+.mineral-chip:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(12,41,101,0.15); }
+
+/* ── Card hover lift ── */
+.card-lift { transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s; }
+.card-lift:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(12,41,101,0.12); }
+
+/* ── Gold accent line ── */
+.gold-line {
+    height: 3px;
+    background: linear-gradient(90deg, #E6AD1E, #f5c842 50%, #E6AD1E);
+    border-radius: 9999px;
+}
+
+/* ── Shimmer CTA button ── */
+@keyframes shimmer { from{ background-position:-200% 0 } to{ background-position:200% 0 } }
+.btn-shimmer {
+    background: linear-gradient(90deg, #E6AD1E 0%, #f5c842 45%, #E6AD1E 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+    color: #261900;
+}
+
+/* ── Hero grid background ── */
+.hero-grid {
+    background-image:
+        linear-gradient(to right, rgba(12,41,101,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(12,41,101,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* ── Decorative orb ── */
+.orb { border-radius: 50%; filter: blur(80px); pointer-events: none; }
+
+/* ── Scroll reveal initial states (for GSAP) ── */
+.reveal       { opacity: 0; transform: translateY(32px); }
+.reveal-left  { opacity: 0; transform: translateX(-32px); }
+.reveal-right { opacity: 0; transform: translateX(32px); }
+.reveal-scale { opacity: 0; transform: scale(0.92); }
+
+/* ── Footer link ── */
+.footer-link {
+    display: block;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    padding: 2px 0;
+    transition: color 0.2s;
+}
+.footer-link:hover { color: #ffffff; }

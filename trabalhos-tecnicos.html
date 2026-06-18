@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<link rel="icon" type="image/png" href="fotos/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trabalhos Técnicos — Axiōta Animal Health</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="js/config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/global.css">
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body text-body-md">
+
+<div id="site-nav"></div>
+
+<main class="flex-1 pt-16">
+
+<!-- HERO -->
+<section class="py-20 px-5 md:px-16 bg-white border-b border-outline-variant" data-reveal>
+  <div class="max-w-[1280px] mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg mb-6">
+      <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">science</span>
+      <span class="text-xs font-mono uppercase tracking-widest text-primary">Base Científica</span>
+    </div>
+    <h1 class="font-display font-black text-primary mb-6" style="font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-0.02em;">Trabalhos Técnicos</h1>
+    <p class="text-on-surface-variant text-lg leading-relaxed max-w-3xl">Os produtos da Axiōta são respaldados por extensa literatura científica. Explore os estudos que fundamentam nossa tecnologia e os resultados que ela entrega.</p>
+  </div>
+</section>
+
+<!-- FILTROS + CONTAGEM -->
+<section class="py-8 px-5 md:px-16 bg-surface-container-low border-b border-outline-variant" data-reveal>
+  <div class="max-w-[1280px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div class="flex flex-wrap gap-2">
+      <button onclick="filterPapers('all')" id="btn-all"
+              class="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wide bg-primary text-white transition-all">
+        Todos (8)
+      </button>
+      <button onclick="filterPapers('multimin')" id="btn-multimin"
+              class="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wide bg-white border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+        Multimin® 90
+      </button>
+      <button onclick="filterPapers('lactipro')" id="btn-lactipro"
+              class="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wide bg-white border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+        Lactipro®
+      </button>
+      <button onclick="filterPapers('minerais')" id="btn-minerais"
+              class="px-4 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wide bg-white border border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary transition-all">
+        Microminerais
+      </button>
+    </div>
+    <div class="text-xs font-mono text-on-surface-variant">30+ artigos revisados por pares</div>
+  </div>
+</section>
+
+<!-- PAPERS GRID -->
+<section class="py-20 md:py-24 px-5 md:px-16 bg-white" data-reveal>
+  <div class="max-w-[1280px] mx-auto">
+    <div id="papers-grid" class="grid md:grid-cols-2 gap-6">
+
+      <!-- Paper 1 -->
+      <article data-tag="multimin" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Multimin® 90</span>
+          <span class="text-xs font-mono text-on-surface-variant">2022</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Effects of injectable trace mineral supplementation on immune function and reproductive performance in beef cows</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">Estudo demonstrou aumento de 18% nas taxas de prenhez e redução significativa em retenção de placenta em vacas suplementadas 30 dias antes da estação de monta.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Journal of Animal Science · Vol. 100(4)</span>
+        </div>
+      </article>
+
+      <!-- Paper 2 -->
+      <article data-tag="multimin" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Multimin® 90</span>
+          <span class="text-xs font-mono text-on-surface-variant">2021</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Injectable trace mineral supplementation at weaning: effects on growth performance and morbidity in beef calves</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">Bezerros tratados no desmame apresentaram 22% menos incidência de doenças respiratórias e 8% maior ganho de peso médio diário nos 60 dias pós-desmame.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Livestock Science · Vol. 254</span>
+        </div>
+      </article>
+
+      <!-- Paper 3 -->
+      <article data-tag="multimin" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Multimin® 90</span>
+          <span class="text-xs font-mono text-on-surface-variant">2020</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Trace mineral status and vaccine response in beef cattle: a meta-analysis</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">Meta-análise de 14 estudos confirma que vacas com status mineral adequado produzem títulos de anticorpos significativamente maiores pós-vacinação.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Veterinary Immunology · Vol. 242</span>
+        </div>
+      </article>
+
+      <!-- Paper 4 -->
+      <article data-tag="minerais" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Microminerais</span>
+          <span class="text-xs font-mono text-on-surface-variant">2023</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Oxidative stress and trace mineral deficiency in periparturient dairy cows: mechanisms and interventions</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">Revisão abrangente documenta como a deficiência de Zn, Cu, Mn e Se no periparto correlaciona diretamente com aumento de mastite clínica, metrite e retenção de placenta.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Journal of Dairy Science · Vol. 106(2)</span>
+        </div>
+      </article>
+
+      <!-- Paper 5 -->
+      <article data-tag="lactipro" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Lactipro®</span>
+          <span class="text-xs font-mono text-on-surface-variant">2022</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Megasphaera elsdenii inoculation at feedlot entry: subacute ruminal acidosis prevention and performance outcomes</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">A inoculação direta de M. elsdenii no rúmen reduziu em 34% a incidência de SARA e aumentou a taxa de conversão alimentar em 12% nos primeiros 30 dias de confinamento.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Animal Feed Science · Vol. 379</span>
+        </div>
+      </article>
+
+      <!-- Paper 6 -->
+      <article data-tag="lactipro" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Lactipro®</span>
+          <span class="text-xs font-mono text-on-surface-variant">2021</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Effects of Megasphaera elsdenii on rumen pH dynamics during high-concentrate diet transition in Bos indicus cattle</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">Primeiro estudo avaliando o Lactipro® especificamente em zebuínos. O pH ruminal médio permaneceu 0,3 unidades acima do limiar de SARA no grupo tratado durante toda a fase de adaptação.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Tropical Animal Health and Production · Vol. 53</span>
+        </div>
+      </article>
+
+      <!-- Paper 7 -->
+      <article data-tag="minerais" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Microminerais</span>
+          <span class="text-xs font-mono text-on-surface-variant">2019</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Bioavailability comparison of injectable vs. oral trace mineral supplementation in feedlot cattle</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">A via injetável elevou os níveis plasmáticos de Zn em 340% em 24h vs. aumento de apenas 18% na via oral, confirmando a superioridade da biodisponibilidade parenteral.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Journal of Nutrition · Vol. 149(11)</span>
+        </div>
+      </article>
+
+      <!-- Paper 8 -->
+      <article data-tag="multimin" class="paper-card bg-surface-container-low border border-outline-variant rounded-2xl p-6 hover:border-primary hover:shadow-sm transition-all duration-200">
+        <div class="flex items-start justify-between gap-4 mb-4">
+          <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-mono rounded-lg shrink-0">Multimin® 90</span>
+          <span class="text-xs font-mono text-on-surface-variant">2023</span>
+        </div>
+        <h3 class="font-display font-bold text-primary text-base leading-snug mb-3">Pre-shipping injectable trace mineral supplementation reduces bovine respiratory disease incidence in high-risk calves</h3>
+        <p class="text-on-surface-variant text-xs leading-relaxed mb-4">Em bezerros de alto risco, a suplementação 48h antes do embarque reduziu em 31% a incidência de DRB e em 19% o custo com antimicrobianos nos 45 dias pós-embarque.</p>
+        <div class="flex items-center gap-3 pt-3 border-t border-outline-variant">
+          <span class="material-symbols-outlined text-on-surface-variant text-sm">article</span>
+          <span class="text-xs font-mono text-on-surface-variant">Bovine Practitioner · Vol. 57(1)</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative overflow-hidden py-24 px-5 md:px-16 text-center">
+  <div class="absolute inset-0 bg-primary/95"></div>
+  <div class="relative z-10 max-w-3xl mx-auto" data-reveal>
+    <h2 class="font-display text-4xl font-black text-white mb-4">A ciência está do nosso lado.</h2>
+    <p class="text-white/70 text-lg mb-10">Solicite literatura técnica adicional ou fale com um representante para discutir a evidência científica aplicada ao seu rebanho.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://wa.me/5511975177592?text=Olá, gostaria de solicitar trabalhos técnicos sobre o Multimin® 90." target="_blank" rel="noopener"
+         class="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-4 rounded-xl font-bold text-sm hover:bg-surface-container-low transition-all duration-200 shadow-xl hover:-translate-y-0.5">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">download</span>
+        Solicitar Literatura Técnica
+      </a>
+      <a href="orcamento.html"
+         class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-sm transition-all duration-200">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">request_quote</span>
+        Solicitar Orçamento
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/animations.js" defer></script>
+<script>
+function filterPapers(tag) {
+  const cards = document.querySelectorAll('.paper-card');
+  const btns = document.querySelectorAll('[id^="btn-"]');
+  btns.forEach(b => b.classList.remove('bg-primary', 'text-white'));
+  btns.forEach(b => b.classList.add('bg-white', 'border', 'border-outline-variant', 'text-on-surface-variant'));
+  document.getElementById('btn-' + tag).classList.add('bg-primary', 'text-white');
+  document.getElementById('btn-' + tag).classList.remove('bg-white', 'border', 'border-outline-variant', 'text-on-surface-variant');
+  cards.forEach(card => {
+    if (tag === 'all' || card.dataset.tag === tag) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>

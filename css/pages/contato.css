@@ -1,0 +1,8 @@
+/* Estilos específicos de contato.html */
+
+/* Valores reais de theme('colors.background') e theme('colors.on-background')
+   Tailwind CDN não processa theme() em arquivos CSS externos */
+body {
+    background-color: #f8f9ff;
+    color: #0b1c30;
+}

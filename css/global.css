@@ -1,0 +1,204 @@
+/* ============================================================
+   Axiōta Animal Health — Global Styles
+   ============================================================ */
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ── Scroll reveal ── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+[data-reveal="left"]  { transform: translateX(-24px); opacity: 0; }
+[data-reveal="right"] { transform: translateX(24px);  opacity: 0; }
+[data-reveal="scale"] { transform: scale(0.95);        opacity: 0; }
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Card hover lift ── */
+.card-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+}
+.card-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(12, 41, 101, 0.1);
+}
+
+/* ── Navbar split mode: override hover/active for white-on-dark ── */
+#navbar.nav-split .nav-link:hover,
+#navbar.nav-split .nav-link:focus {
+  background: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+}
+#navbar.nav-split .nav-link.text-primary.bg-surface-container-low {
+  background: rgba(255,255,255,0.15) !important;
+  color: #fff !important;
+}
+
+/* ── Gold accent line ── */
+.gold-line {
+  height: 3px;
+  background: linear-gradient(90deg, #E6AD1E, #f5c842 50%, #E6AD1E);
+  border-radius: 9999px;
+}
+
+/* ── Ticker ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-wrap  { overflow: hidden; }
+.ticker-inner { display: flex; width: max-content; animation: ticker 30s linear infinite; }
+.ticker-item  {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.65);
+}
+.ticker-item::after { content: '◆'; color: #E6AD1E; margin: 0 1.5rem; }
+
+/* ── Float animation ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+.float         { animation: float 4s ease-in-out infinite; }
+.float-delayed { animation: float 4s ease-in-out 1.5s infinite; }
+
+/* ── Shimmer button ── */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+.btn-shimmer {
+  background: linear-gradient(90deg, #E6AD1E 0%, #f5c842 45%, #E6AD1E 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+  color: #261900;
+}
+
+/* ── Mineral chip ── */
+.mineral-chip {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mineral-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(12, 41, 101, 0.14);
+}
+
+/* ── Decorative orb ── */
+.orb {
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Footer link ── */
+.footer-link {
+  display: block;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  padding: 3px 0;
+  transition: color 0.2s, transform 0.2s;
+  text-decoration: none;
+}
+.footer-link:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+/* ── WhatsApp FAB ── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.5);
+}
+
+/* ── Smooth scroll ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Hero section ── */
+#hero-carousel {
+  height: 100%;
+  width: 100%;
+}
+
+/* ── Table ── */
+table {
+  border-collapse: collapse;
+}
+
+/* ── Dropdown animation ── */
+.dropdown-menu {
+  transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.15s ease;
+}
+
+/* ── Section dividers ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(12,41,101,0.1) 30%, rgba(12,41,101,0.1) 70%, transparent);
+}
+
+/* ── Stat counter ── */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ── Image hover ── */
+.img-hover {
+  overflow: hidden;
+}
+.img-hover img {
+  transition: transform 0.4s ease;
+}
+.img-hover:hover img {
+  transform: scale(1.04);
+}
+
+/* ── Focus ring ── */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #0c2965;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Ambient shadow ── */
+.ambient-shadow {
+  box-shadow: 0 20px 40px -10px rgba(12, 41, 101, 0.05);
+}
+
+/* ── Pulse ring ── */
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(1);     opacity: 0.4;  }
+  50%       { transform: scale(1.08); opacity: 0.12; }
+}

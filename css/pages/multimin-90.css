@@ -1,0 +1,10 @@
+/* Estilos específicos de multimin-90.html */
+
+/* Override: esta página usa ícones preenchidos por padrão */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.text-shadow-ambient {
+    text-shadow: 0px 4px 20px rgba(12, 41, 101, 0.15);
+}

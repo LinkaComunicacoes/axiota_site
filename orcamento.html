@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<link rel="icon" type="image/png" href="fotos/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Solicitar Orçamento — Axiōta Animal Health</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="js/config.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/global.css">
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body text-body-md">
+
+<div id="site-nav"></div>
+
+<main class="flex-1 pt-16">
+
+<!-- HERO -->
+<section class="py-20 px-5 md:px-16 bg-white border-b border-outline-variant" data-reveal>
+  <div class="max-w-[1280px] mx-auto">
+    <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg mb-6">
+      <span class="material-symbols-outlined text-primary text-base" style="font-variation-settings:'FILL' 1;">request_quote</span>
+      <span class="text-xs font-mono uppercase tracking-widest text-primary">Orçamento Personalizado</span>
+    </div>
+    <h1 class="font-display font-black text-primary mb-6" style="font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-0.02em;">Solicite seu Orçamento</h1>
+    <p class="text-on-surface-variant text-lg leading-relaxed max-w-3xl">Informe os detalhes da sua operação e nossa equipe preparará uma proposta personalizada para o seu rebanho. Resposta em até 24 horas úteis.</p>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section class="py-12 px-5 md:px-16 bg-surface-container-low border-b border-outline-variant">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-display font-bold text-sm mb-2">1</div>
+        <span class="text-xs font-mono uppercase tracking-wide text-on-surface-variant">Preencha</span>
+      </div>
+      <div class="flex flex-col items-center text-center relative">
+        <div class="absolute top-5 left-0 w-full h-px bg-outline-variant -z-0"></div>
+        <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-display font-bold text-sm mb-2 relative z-10">2</div>
+        <span class="text-xs font-mono uppercase tracking-wide text-on-surface-variant">Analisamos</span>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-display font-bold text-sm mb-2">3</div>
+        <span class="text-xs font-mono uppercase tracking-wide text-on-surface-variant">Receba a proposta</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="py-20 md:py-28 px-5 md:px-16 bg-white" data-reveal>
+  <div class="max-w-[1280px] mx-auto grid lg:grid-cols-3 gap-12 items-start">
+
+    <!-- PRODUTOS -->
+    <div class="lg:col-span-1 space-y-4">
+      <h3 class="font-display text-lg font-bold text-primary">Nossos Produtos</h3>
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1;">vaccines</span>
+          </div>
+          <div>
+            <div class="font-display font-bold text-primary text-sm">Multimin® 90</div>
+            <div class="text-xs text-on-surface-variant font-mono">Zn · Cu · Mn · Se</div>
+          </div>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed">Suplemento injetável de microminerais de ação sistêmica e rápida. Indicado para bovinos de corte e leite nos momentos de alto estresse.</p>
+        <a href="multimin-90.html" class="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3 hover:underline">
+          Ver produto <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+      <div class="bg-surface-container-low border border-outline-variant rounded-2xl p-5">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-lg" style="font-variation-settings:'FILL' 1;">water_drop</span>
+          </div>
+          <div>
+            <div class="font-display font-bold text-primary text-sm">Lactipro®</div>
+            <div class="text-xs text-on-surface-variant font-mono">Megasphaera elsdenii</div>
+          </div>
+        </div>
+        <p class="text-on-surface-variant text-xs leading-relaxed">Probiótico ruminal que previne a acidose durante as transições de dieta, garantindo máxima eficiência alimentar desde o primeiro dia.</p>
+        <a href="lactipro.html" class="inline-flex items-center gap-1 text-xs font-semibold text-primary mt-3 hover:underline">
+          Ver produto <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="lg:col-span-2">
+      <h2 class="font-display text-2xl font-bold text-primary mb-6">Detalhes da sua operação</h2>
+      <form id="orcamento-form" class="space-y-5">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">Nome / Razão Social *</label>
+            <input type="text" name="nome" required placeholder="Seu nome ou fazenda"
+                   class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"/>
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">WhatsApp *</label>
+            <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000"
+                   class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"/>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">Estado *</label>
+            <select name="estado" required class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
+              <option value="">Selecione</option>
+              <option>Mato Grosso</option>
+              <option>Mato Grosso do Sul</option>
+              <option>Goiás</option>
+              <option>Minas Gerais</option>
+              <option>São Paulo</option>
+              <option>Pará</option>
+              <option>Tocantins</option>
+              <option>Rondônia</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">Tipo de Operação *</label>
+            <select name="operacao" required class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
+              <option value="">Selecione</option>
+              <option>Confinamento</option>
+              <option>Cria e Recria</option>
+              <option>Leite</option>
+              <option>Ciclo Completo</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">Produto de Interesse *</label>
+            <select name="produto" required class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
+              <option value="">Selecione</option>
+              <option>Multimin® 90</option>
+              <option>Lactipro®</option>
+              <option>Ambos (protocolo completo)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">Quantidade de Animais</label>
+            <input type="text" name="animais" placeholder="Ex: 2.000 cabeças"
+                   class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"/>
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-mono uppercase tracking-wide text-on-surface-variant mb-1.5">Informações adicionais</label>
+          <textarea name="info" rows="3" placeholder="Frequência de aplicação desejada, histórico de problemas sanitários, etc."
+                    class="w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 text-sm text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all resize-none"></textarea>
+        </div>
+        <button type="submit"
+                class="w-full flex items-center justify-center gap-2 bg-primary text-white px-6 py-4 rounded-xl font-bold text-base hover:bg-scientific-blue transition-all duration-200 shadow-md">
+          <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">request_quote</span>
+          Solicitar Orçamento via WhatsApp
+        </button>
+        <p class="text-xs text-on-surface-variant text-center">Você será redirecionado para o WhatsApp com as informações pré-preenchidas. Retornamos em até 24h úteis.</p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/animations.js" defer></script>
+<script>
+document.getElementById('orcamento-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const f = this;
+  const text = `*Solicitação de Orçamento — Axiōta*\n\n` +
+    `Nome: ${f.nome.value}\n` +
+    `WhatsApp: ${f.whatsapp.value}\n` +
+    `Estado: ${f.estado.value}\n` +
+    `Operação: ${f.operacao.value}\n` +
+    `Produto: ${f.produto.value}\n` +
+    `Animais: ${f.animais.value || 'Não informado'}\n` +
+    (f.info.value ? `\nInformações: ${f.info.value}` : '');
+  window.open('https://wa.me/5511975177592?text=' + encodeURIComponent(text), '_blank');
+});
+</script>
+</body>
+</html>

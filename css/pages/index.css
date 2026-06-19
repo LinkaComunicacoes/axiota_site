@@ -8,11 +8,11 @@
 
 /* ── Mobile carousel: CSS controla tudo, JS só anima backgrounds ── */
 @media (max-width: 639px) {
-  /* Altura: 100svh desconta barra do browser (iOS/Android) */
+  /* 100svh = viewport sem barra do browser; -4rem = altura do navbar fixo */
   #hero {
-    height: 100svh;
-    min-height: 500px;
-    max-height: 900px;
+    height: calc(100svh - 4rem);
+    min-height: 460px;
+    max-height: 800px;
   }
 
   /* Wrapper interno criado pelo JS */
@@ -44,8 +44,7 @@
     left: 0;
     right: 0;
     z-index: 10;
-    padding: 0 1.25rem env(safe-area-inset-bottom, 1.75rem);
-    padding-bottom: max(env(safe-area-inset-bottom, 0px) + 1.75rem, 1.75rem);
+    padding: 0 1.25rem 1.75rem;
   }
 
   #hero-mobile-label {

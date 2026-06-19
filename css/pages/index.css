@@ -1,5 +1,17 @@
 /* Estilos específicos de index.html */
 
+#hero {
+  height: 92vh;
+  min-height: 560px;
+}
+
+@media (max-width: 640px) {
+  #hero {
+    height: 580px;
+    min-height: 580px;
+  }
+}
+
 .glass-panel {
     background: rgba(248, 250, 252, 0.8);
     backdrop-filter: blur(12px);

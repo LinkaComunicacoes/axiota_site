@@ -71,7 +71,7 @@ var SLIDES = [
     "display:flex;align-items:center;justify-content:flex-start;",
     "text-align:left;",
     "padding:0 clamp(1.25rem,5vw,5rem);",
-    "padding-top:4rem;",
+    "padding-top:clamp(1.5rem,5vh,4rem);",
   ].join("");
 
   var textInner = document.createElement("div");

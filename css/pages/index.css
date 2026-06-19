@@ -6,13 +6,19 @@
   min-height: 560px;
 }
 
-/* ── Mobile carousel: CSS controla tudo, JS só anima backgrounds ── */
+/* ─────────────────────────────────────────────────────────────────
+   Mobile carousel — layout EMPILHADO, controlado 100% por CSS.
+   Imagem dedicada (contain, nunca cortada) em cima + texto embaixo.
+   Fundo navy #003F9E = cor do campo dos banners → blend perfeito.
+   Baseado na pesquisa: "Banner que Quebra no Mobile" → Solução 3
+   (imagem dedicada para mobile) + object-fit/contain para não cortar.
+───────────────────────────────────────────────────────────────── */
 @media (max-width: 639px) {
-  /* 100svh = viewport sem barra do browser; -4rem = altura do navbar fixo */
+  /* 100svh desconta a barra do browser; -4rem = navbar fixo (pt-16) */
   #hero {
     height: calc(100svh - 4rem);
-    min-height: 460px;
-    max-height: 800px;
+    min-height: 480px;
+    max-height: 760px;
   }
 
   /* Wrapper interno criado pelo JS */
@@ -20,31 +26,42 @@
     position: relative;
     height: 100%;
     overflow: hidden;
+    background: #003F9E;
   }
 
-  /* Gradiente de leitura — escurece só a base */
-  #hero-mobile-overlay {
+  /* Coluna: imagem (flex-grow) + texto (altura natural) */
+  #hero-mobile-stack {
     position: absolute;
     inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      rgba(12,41,101,0.10) 0%,
-      transparent 35%,
-      rgba(0,0,0,0.55) 65%,
-      rgba(0,0,0,0.82) 100%
-    );
-    z-index: 5;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Bloco de texto: ancorado no rodapé, nunca cortado */
+  /* Área da imagem — ocupa o espaço acima do texto */
+  #hero-mobile-imgwrap {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.75rem 0;
+  }
+
+  /* Imagem dos produtos — contain garante que NADA é cortado */
+  #hero-mobile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: opacity 0.4s ease;
+  }
+
+  /* Bloco de texto — base, sobre fundo navy, nunca sobrepõe a imagem */
   #hero-mobile-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    padding: 0 1.25rem 1.75rem;
+    flex: 0 0 auto;
+    padding: 0 1.5rem 2rem;
+    text-align: left;
   }
 
   #hero-mobile-label {
@@ -65,11 +82,12 @@
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 900;
     color: #fff;
-    font-size: clamp(22px, 6.5vw, 30px);
-    line-height: 1.15;
+    /* rem no min/max + vw fluido = seguro p/ acessibilidade e zoom */
+    font-size: clamp(1.375rem, 1rem + 2.5vw, 1.875rem);
+    line-height: 1.18;
     letter-spacing: -0.02em;
     margin: 0 0 1.125rem;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
     transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
@@ -85,10 +103,8 @@
     font-weight: 700;
     font-size: 14px;
     text-decoration: none;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    margin-bottom: 1.5rem;
-    /* Touch target mínimo 44px — P2 da skill */
-    min-height: 44px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    min-height: 44px; /* touch target — P2 da skill UI/UX */
   }
 
   /* Indicador de slides — topo direito */
@@ -105,14 +121,14 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.4);
     transition: background 0.3s, transform 0.3s;
     display: block;
   }
 
   #hero-mobile-dots span.active {
     background: #fff;
-    transform: scale(1.2);
+    transform: scale(1.25);
   }
 }
 

@@ -1,6 +1,6 @@
 var SLIDES = [
   {
-    image: "fotos/banner produtos multimin 90 + lactipro.png",
+    image: "fotos/banner-produtos-multimin90-lactipro.png",
     label: "Biotecnologia de Precisão",
     title: "Se livre do imprevisto e potencialize o desempenho do seu rebanho.",
     body: "A biologia não pode ser um risco na sua fazenda. Assuma o controle e converta seu investimento em lucro.",

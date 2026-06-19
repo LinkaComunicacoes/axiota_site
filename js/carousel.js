@@ -7,14 +7,14 @@ var SLIDES = [
     body: "A biologia não pode ser um risco na sua fazenda. Assuma o controle e converta seu investimento em lucro.",
   },
   {
-    image: "fotos/banner 4.png",
+    image: "fotos/banner-4-novo.png",
     imageMobile: "fotos/banner-4-mobile.png",
     label: "Multimin® 90",
     title: "Microminerais injetáveis para o momento que mais exige do seu animal.",
     body: "Pico de absorção em 24h. Imunidade e desempenho quando o rebanho mais precisa.",
   },
   {
-    image: "fotos/banner 5.png",
+    image: "fotos/banner-5-novo.png",
     imageMobile: "fotos/banner-5-mobile.png",
     label: "Lactipro®",
     title: "Elimine a acidose ruminal antes que ela elimine o seu lucro.",

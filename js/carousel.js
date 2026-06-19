@@ -1,8 +1,8 @@
 var SLIDES = [
   {
     image: "fotos/banner produtos multimin 90 + lactipro.png",
-    label: "Certeza Biológica",
-    title: "Se livre do imprevisto e extraia a máxima capacidade do seu rebanho.",
+    label: "Biotecnologia de Precisão",
+    title: "Se livre do imprevisto e potencialize o desempenho do seu rebanho.",
     body: "A biologia não pode ser um risco na sua fazenda. Assuma o controle e converta seu investimento em lucro.",
   },
   {
@@ -15,7 +15,7 @@ var SLIDES = [
     image: "fotos/banner 5.png",
     label: "Lactipro®",
     title: "Elimine a acidose ruminal antes que ela elimine o seu lucro.",
-    body: "O único probiótico ruminante que atua diretamente na causa. Transição de dieta sem refugo de cocho.",
+    body: "Biotecnologia ruminal que atua diretamente na causa. Transição de dieta sem refugo de cocho.",
   },
 ];
 
@@ -91,8 +91,8 @@ var SLIDES = [
   h1El.style.cssText = [
     "font-family:'Hanken Grotesk',sans-serif;font-weight:900;",
     "color:#fff;",
-    "font-size:clamp(24px,3.6vw,46px);",
-    "line-height:1.08;letter-spacing:-0.025em;margin-bottom:12px;",
+    "font-size:clamp(28px,4.5vw,46px);",
+    "line-height:1.1;letter-spacing:-0.025em;margin-bottom:12px;",
     "transition:opacity 0.4s ease,transform 0.4s ease;",
     "text-shadow:0 2px 24px rgba(0,0,0,0.3);",
   ].join("");
@@ -100,7 +100,7 @@ var SLIDES = [
   var bodyEl = document.createElement("p");
   bodyEl.style.cssText = [
     "color:rgba(255,255,255,0.72);",
-    "font-size:clamp(13px,1.4vw,15px);",
+    "font-size:clamp(14px,1.6vw,16px);",
     "line-height:1.6;font-family:'Inter',sans-serif;",
     "margin-bottom:24px;",
     "transition:opacity 0.4s 0.08s ease,transform 0.4s 0.08s ease;",

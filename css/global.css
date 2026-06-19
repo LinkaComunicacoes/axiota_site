@@ -145,6 +145,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Prevent horizontal overflow on mobile ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* ── Mobile touch improvements ── */
+@media (max-width: 767px) {
+  /* Ensure tap targets are comfortable */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent images from overflowing their containers */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 /* ── Hero section ── */
 #hero-carousel {
   height: 100%;

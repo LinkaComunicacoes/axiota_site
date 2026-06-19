@@ -1,15 +1,119 @@
 /* Estilos específicos de index.html */
 
+/* Desktop */
 #hero {
   height: 92vh;
   min-height: 560px;
 }
 
-@media (max-width: 640px) {
+/* ── Mobile carousel: CSS controla tudo, JS só anima backgrounds ── */
+@media (max-width: 639px) {
+  /* Altura: 100svh desconta barra do browser (iOS/Android) */
   #hero {
     height: 100svh;
-    min-height: 480px;
-    max-height: 700px;
+    min-height: 500px;
+    max-height: 900px;
+  }
+
+  /* Wrapper interno criado pelo JS */
+  #hero > div {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  /* Gradiente de leitura — escurece só a base */
+  #hero-mobile-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(12,41,101,0.10) 0%,
+      transparent 35%,
+      rgba(0,0,0,0.55) 65%,
+      rgba(0,0,0,0.82) 100%
+    );
+    z-index: 5;
+  }
+
+  /* Bloco de texto: ancorado no rodapé, nunca cortado */
+  #hero-mobile-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 0 1.25rem env(safe-area-inset-bottom, 1.75rem);
+    padding-bottom: max(env(safe-area-inset-bottom, 0px) + 1.75rem, 1.75rem);
+  }
+
+  #hero-mobile-label {
+    display: inline-block;
+    font-size: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #93CAFF;
+    border: 1px solid rgba(147,202,255,0.4);
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    transition: opacity 0.3s;
+  }
+
+  #hero-mobile-h1 {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 900;
+    color: #fff;
+    font-size: clamp(22px, 6.5vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.125rem;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  #hero-mobile-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: #0c2965;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-bottom: 1.5rem;
+    /* Touch target mínimo 44px — P2 da skill */
+    min-height: 44px;
+  }
+
+  /* Indicador de slides — topo direito */
+  #hero-mobile-dots {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
+    display: flex;
+    gap: 6px;
+  }
+
+  #hero-mobile-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transition: background 0.3s, transform 0.3s;
+    display: block;
+  }
+
+  #hero-mobile-dots span.active {
+    background: #fff;
+    transform: scale(1.2);
   }
 }
 

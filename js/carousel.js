@@ -150,73 +150,40 @@ var SLIDES = [
   }
 
   /* ─────────────────────────────────────────────────────────────
-     MODO MOBILE — layout completamente refeito
-     Gradiente escuro na base + título grande + botão único
+     MODO MOBILE — JS só cria estrutura; todo o estilo vem do CSS
+     (index.css @media max-width:639px controla aparência)
   ───────────────────────────────────────────────────────────── */
-  if (isMobile) {
-    /* Gradiente mais forte na parte inferior para legibilidade */
-    var mOverlay = document.createElement("div");
-    mOverlay.style.cssText = [
-      "position:absolute;inset:0;pointer-events:none;",
-      "background:linear-gradient(",
-      "to bottom,",
-      "rgba(12,41,101,0.15) 0%,",
-      "rgba(12,41,101,0.10) 40%,",
-      "rgba(0,0,0,0.65) 70%,",
-      "rgba(0,0,0,0.85) 100%",
-      ");",
-    ].join("");
+  var dots = [];
 
-    /* Bloco de texto ancorado no rodapé */
+  if (isMobile) {
+    var mOverlay = document.createElement("div");
+    mOverlay.id = "hero-mobile-overlay";
+
     var mText = document.createElement("div");
-    mText.style.cssText = [
-      "position:absolute;bottom:0;left:0;right:0;z-index:10;",
-      "padding:1.5rem 1.25rem 2rem;",
-    ].join("");
+    mText.id = "hero-mobile-text";
 
     labelEl = document.createElement("span");
-    labelEl.style.cssText = [
-      "display:inline-block;",
-      "font-size:9px;font-family:'JetBrains Mono',monospace;",
-      "text-transform:uppercase;letter-spacing:0.16em;",
-      "color:#93CAFF;border:1px solid rgba(147,202,255,0.4);",
-      "padding:3px 10px;border-radius:20px;margin-bottom:10px;",
-      "transition:opacity 0.3s ease;",
-    ].join("");
+    labelEl.id = "hero-mobile-label";
 
     h1El = document.createElement("h1");
-    h1El.style.cssText = [
-      "font-family:'Hanken Grotesk',sans-serif;font-weight:900;color:#fff;",
-      "font-size:26px;line-height:1.15;letter-spacing:-0.02em;",
-      "margin:0 0 18px;",
-      "text-shadow:0 2px 16px rgba(0,0,0,0.5);",
-      "transition:opacity 0.4s ease,transform 0.4s ease;",
-    ].join("");
+    h1El.id = "hero-mobile-h1";
 
-    /* bodyEl placeholder — não exibido no mobile mas precisa existir para o render() */
     bodyEl = document.createElement("p");
     bodyEl.style.cssText = "display:none;";
 
     var mCta = document.createElement("a");
+    mCta.id = "hero-mobile-cta";
     mCta.href = "multimin-90.html";
-    mCta.style.cssText = [
-      "display:inline-flex;align-items:center;gap:8px;",
-      "background:#fff;color:#0c2965;",
-      "padding:11px 24px;border-radius:12px;",
-      "font-family:'Hanken Grotesk',sans-serif;font-weight:700;font-size:14px;",
-      "text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.3);",
-    ].join("");
     mCta.innerHTML = 'Ver Produtos <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
-    /* Indicador de slides (bolinhas) */
     var mDots = document.createElement("div");
-    mDots.style.cssText = "position:absolute;top:1rem;right:1rem;z-index:20;display:flex;gap:6px;";
-    var dots = SLIDES.map(function (_, i) {
-      var d = document.createElement("div");
-      d.style.cssText = "width:6px;height:6px;border-radius:50%;background:" + (i === 0 ? "#fff" : "rgba(255,255,255,0.35)") + ";transition:background 0.3s;";
+    mDots.id = "hero-mobile-dots";
+    dots = SLIDES.map(function (_, i) {
+      var d = document.createElement("span");
+      if (i === 0) d.className = "active";
+      mDots.appendChild(d);
       return d;
     });
-    dots.forEach(function (d) { mDots.appendChild(d); });
 
     mText.appendChild(labelEl);
     mText.appendChild(h1El);
@@ -224,16 +191,6 @@ var SLIDES = [
     wrapper.appendChild(mOverlay);
     wrapper.appendChild(mText);
     wrapper.appendChild(mDots);
-
-    /* Atualiza bolinhas ao mudar slide */
-    var origGoTo = function (n) {};
-    var updateDots = function (idx) {
-      dots.forEach(function (d, i) {
-        d.style.background = i === idx ? "#fff" : "rgba(255,255,255,0.35)";
-      });
-    };
-    /* sobrescreve depois de goTo ser definido */
-    window._carouselUpdateDots = updateDots;
   }
 
   /* ─────────────────────────────────────────────────────────────
@@ -272,8 +229,10 @@ var SLIDES = [
     bgs.forEach(function (b, i) { b.style.opacity = i === idx ? "1" : "0"; });
     current = idx;
 
-    if (isMobile && window._carouselUpdateDots) {
-      window._carouselUpdateDots(idx);
+    if (isMobile && dots.length) {
+      dots.forEach(function (d, i) {
+        d.className = i === idx ? "active" : "";
+      });
     }
 
     progressBar.style.transition = "none";

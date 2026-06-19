@@ -26,6 +26,7 @@ var SLIDES = [
   var current = 0;
   var timer = null;
   var DURATION = 5500;
+  var isMobile = window.innerWidth < 640;
 
   /* ── Backgrounds ─────────────────────────────────────────── */
   var bgs = SLIDES.map(function (s, i) {
@@ -33,7 +34,8 @@ var SLIDES = [
     el.style.cssText = [
       "position:absolute;inset:0;",
       "background-image:url('" + s.image + "');",
-      "background-size:cover;background-position:center;",
+      "background-size:cover;",
+      "background-position:" + (isMobile ? "60% center" : "center") + ";",
       "opacity:" + (i === 0 ? "1" : "0") + ";",
       "transition:opacity 1.1s cubic-bezier(0.4,0,0.2,1);",
       "will-change:opacity;",
@@ -64,18 +66,18 @@ var SLIDES = [
   ].join("");
   progressTrack.appendChild(progressBar);
 
-  /* ── Text block (centered) ────────────────────────────────── */
+  /* ── Text block ───────────────────────────────────────────── */
   var textWrap = document.createElement("div");
   textWrap.style.cssText = [
     "position:relative;z-index:10;height:100%;",
-    "display:flex;align-items:center;justify-content:flex-start;",
-    "text-align:left;",
-    "padding:0 clamp(1.25rem,5vw,5rem);",
-    "padding-top:clamp(1.5rem,5vh,4rem);",
+    "display:flex;justify-content:flex-start;text-align:left;",
+    isMobile
+      ? "align-items:flex-end;padding:0 1.25rem 2.5rem;"
+      : "align-items:center;padding:0 clamp(1.25rem,5vw,5rem);padding-top:clamp(1.5rem,5vh,4rem);",
   ].join("");
 
   var textInner = document.createElement("div");
-  textInner.style.cssText = "max-width:560px;";
+  textInner.style.cssText = isMobile ? "width:100%;" : "max-width:560px;";
 
   var labelEl = document.createElement("span");
   labelEl.style.cssText = [
@@ -83,7 +85,8 @@ var SLIDES = [
     "font-size:10px;font-family:'JetBrains Mono',monospace;",
     "text-transform:uppercase;letter-spacing:0.14em;",
     "color:#93CAFF;border:1px solid rgba(147,202,255,0.35);",
-    "padding:3px 11px;border-radius:20px;margin-bottom:14px;",
+    "padding:3px 11px;border-radius:20px;",
+    isMobile ? "margin-bottom:8px;" : "margin-bottom:14px;",
     "transition:opacity 0.35s ease;",
   ].join("");
 
@@ -91,8 +94,9 @@ var SLIDES = [
   h1El.style.cssText = [
     "font-family:'Hanken Grotesk',sans-serif;font-weight:900;",
     "color:#fff;",
-    "font-size:clamp(28px,4.5vw,46px);",
-    "line-height:1.1;letter-spacing:-0.025em;margin-bottom:12px;",
+    isMobile ? "font-size:22px;" : "font-size:clamp(28px,4.5vw,46px);",
+    isMobile ? "line-height:1.15;margin-bottom:8px;" : "line-height:1.1;margin-bottom:12px;",
+    "letter-spacing:-0.025em;",
     "transition:opacity 0.4s ease,transform 0.4s ease;",
     "text-shadow:0 2px 24px rgba(0,0,0,0.3);",
   ].join("");
@@ -100,14 +104,16 @@ var SLIDES = [
   var bodyEl = document.createElement("p");
   bodyEl.style.cssText = [
     "color:rgba(255,255,255,0.72);",
-    "font-size:clamp(14px,1.6vw,16px);",
-    "line-height:1.6;font-family:'Inter',sans-serif;",
-    "margin-bottom:24px;",
+    isMobile ? "font-size:13px;line-height:1.5;margin-bottom:16px;" : "font-size:clamp(14px,1.6vw,16px);line-height:1.6;margin-bottom:24px;",
+    "font-family:'Inter',sans-serif;",
+    isMobile ? "display:none;" : "",
     "transition:opacity 0.4s 0.08s ease,transform 0.4s 0.08s ease;",
   ].join("");
 
   var ctaEl = document.createElement("div");
-  ctaEl.style.cssText = "display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-start;";
+  ctaEl.style.cssText = isMobile
+    ? "display:flex;flex-direction:column;gap:8px;align-items:flex-start;"
+    : "display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-start;";
   ctaEl.innerHTML = [
     '<a href="multimin-90.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0c2965;padding:10px 22px;border-radius:12px;font-family:\'Hanken Grotesk\',sans-serif;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.18);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform=\'translateY(-2px)\';this.style.boxShadow=\'0 8px 28px rgba(0,0,0,0.22)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'0 4px 20px rgba(0,0,0,0.18)\'">',
     'Ver Produtos',

@@ -134,13 +134,13 @@ function initCarousel() {
   var mImgs = [];
   if (isMobile) {
     // Wrapper usa flex-column
-    wrapper.style.cssText = "display:flex;flex-direction:column;height:100%;overflow:hidden;";
+    wrapper.style.cssText = "display:flex;flex-direction:column;overflow:hidden;";
 
     // Bloco de texto no topo (fundo navy)
     var mText = document.createElement("div");
     mText.id = "hero-mobile-text";
 
-    // Dots indicadores (topo direito dentro do bloco de texto)
+    // Dots — pill indicator no topo direito
     var mDots = document.createElement("div");
     mDots.id = "hero-mobile-dots";
     dots = SLIDES.map(function (_, i) {
@@ -170,10 +170,15 @@ function initCarousel() {
     mText.appendChild(mCta);
     wrapper.appendChild(mText);
 
-    // Progress bar abaixo do texto
+    // Progress bar como separador visual (fina linha azul animada)
+    progressTrack.style.cssText = [
+      "width:100%;height:2px;flex-shrink:0;",
+      "background:rgba(147,202,255,0.12);position:relative;",
+    ].join("");
+    progressBar.style.cssText = "height:100%;width:0%;background:#93CAFF;transition:width linear;";
     wrapper.appendChild(progressTrack);
 
-    // Bloco de imagem (flex-grow para preencher o resto)
+    // Bloco de imagem
     var mImgWrap = document.createElement("div");
     mImgWrap.id = "hero-mobile-imgwrap";
 
@@ -181,7 +186,6 @@ function initCarousel() {
       var img = document.createElement("img");
       img.src = s.imageMobile;
       img.alt = s.label;
-      img.id = "hero-mobile-img-" + i;
       img.style.cssText = [
         "position:absolute;inset:0;width:100%;height:100%;",
         "object-fit:cover;object-position:center top;",

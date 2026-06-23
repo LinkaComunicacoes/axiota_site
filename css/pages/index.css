@@ -29,81 +29,116 @@
   /* Bloco de texto no topo — fundo navy */
   #hero-mobile-text {
     background: #0c2965;
-    padding: 1.25rem 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem 1.75rem;
     position: relative;
     flex-shrink: 0;
   }
 
-  /* Dots no canto superior direito do bloco de texto */
+  /* Linha de progresso no fundo do bloco de texto */
+  #hero-mobile-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(147, 202, 255, 0.15);
+  }
+
+  /* Dots — linha horizontal alinhada ao topo direito */
   #hero-mobile-dots {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 1.25rem;
+    right: 1.5rem;
     display: flex;
-    gap: 6px;
+    gap: 5px;
+    align-items: center;
   }
 
   #hero-mobile-dots span {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.35);
-    transition: background 0.3s, transform 0.3s;
+    background: rgba(255,255,255,0.25);
+    transition: background 0.3s, width 0.3s;
     display: block;
+    flex-shrink: 0;
   }
 
   #hero-mobile-dots span.active {
-    background: #fff;
-    transform: scale(1.3);
+    background: #93CAFF;
+    width: 16px;
+    border-radius: 3px;
   }
 
+  /* Label badge */
   #hero-mobile-label {
     display: inline-block;
-    font-size: 9px;
+    font-size: 9.5px;
     font-family: 'JetBrains Mono', monospace;
     text-transform: uppercase;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.18em;
     color: #93CAFF;
-    border: 1px solid rgba(147,202,255,0.4);
-    padding: 3px 10px;
+    border: 1px solid rgba(147, 202, 255, 0.35);
+    padding: 4px 12px;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
+    margin-top: 2.25rem;
     transition: opacity 0.3s;
   }
 
+  /* Título */
   #hero-mobile-h1 {
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 900;
     color: #fff;
-    font-size: clamp(1.3rem, 1rem + 3vw, 1.9rem);
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    margin: 0 0 1.25rem;
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    font-size: clamp(1.45rem, 1.1rem + 3.5vw, 2rem);
+    line-height: 1.13;
+    letter-spacing: -0.03em;
+    margin: 0 0 1.5rem;
+    transition: opacity 0.35s ease, transform 0.35s ease;
   }
 
+  /* CTA */
   #hero-mobile-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
     background: #fff;
     color: #0c2965;
-    padding: 10px 22px;
-    border-radius: 12px;
+    padding: 11px 24px;
+    border-radius: 10px;
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 700;
     font-size: 14px;
     text-decoration: none;
     min-height: 44px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
 
-  /* Wrapper da imagem — ocupa o resto do espaço disponível */
+  #hero-mobile-cta:active {
+    transform: scale(0.97);
+    box-shadow: 0 1px 6px rgba(0,0,0,0.2);
+  }
+
+  /* Progress bar (inline, posicionado pelo JS entre texto e imagem) */
+  #hero-mobile-progress {
+    height: 2px;
+    background: rgba(147,202,255,0.15);
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  /* Wrapper da imagem */
   #hero-mobile-imgwrap {
     position: relative;
-    height: calc(55svh - 4rem);
-    min-height: 240px;
+    height: calc(62svh - 4rem);
+    min-height: 260px;
     overflow: hidden;
     flex-shrink: 0;
+    background: #0c2965;
   }
 }
 

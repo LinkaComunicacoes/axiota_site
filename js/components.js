@@ -244,6 +244,7 @@
       navbar.querySelectorAll(".nav-link").forEach(function (el) {
         el.style.color = "rgba(255,255,255,0.85)";
       });
+      if (hamburger) hamburger.style.color = "#fff";
     } else {
       navbar.style.background = scrolled ? "rgba(255,255,255,0.97)" : "#ffffff";
       navbar.style.boxShadow = scrolled ? "0 1px 12px rgba(12,41,101,0.08)" : "none";
@@ -251,6 +252,7 @@
       if (navBgSplit) navBgSplit.style.opacity = "0";
       navbar.classList.remove("nav-split");
       navbar.querySelectorAll(".nav-link").forEach(function (el) { el.style.color = ""; });
+      if (hamburger) hamburger.style.color = "";
     }
   }
 

@@ -142,7 +142,7 @@ function initCarousel() {
       var el = document.createElement("div");
       el.style.cssText = [
         "position:absolute;inset:0;",
-        "background-image:url('" + s.image + "');",
+        "background-image:url('" + s.imageMobile + "');",
         "background-size:cover;background-position:center top;",
         "opacity:" + (i === 0 ? "1" : "0") + ";",
         "transition:opacity 1.1s cubic-bezier(0.4,0,0.2,1);",

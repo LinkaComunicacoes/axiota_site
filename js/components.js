@@ -30,10 +30,10 @@
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-outline-variant nav-transparent" style="transition:background 0.35s,box-shadow 0.35s,border-color 0.35s;">\
   <div id="nav-bg-split" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 0.45s ease;">\
     <div style="position:absolute;inset:0;background:#0c2965;"></div>\
-    <div id="nav-split-white" style="position:absolute;inset:0;background:#fff;clip-path:polygon(0 0,200px 0,186px 100%,0 100%);will-change:clip-path;transition:clip-path 0.1s;"></div>\
+    <div id="nav-split-white" style="position:absolute;inset:0;background:#fff;will-change:clip-path;transition:clip-path 0.1s;"></div>\
   </div>\
   <div class="flex items-center justify-between w-full max-w-[1280px] mx-auto px-5 md:px-16 h-16 relative">\
-    <a href="index.html" class="flex items-center gap-3 shrink-0 group">\
+    <a href="index.html" class="flex items-center gap-3 shrink-0 group flex-1">\
       <img src="fotos/logo_axiota.png" alt="Axiōta Animal Health" class="h-9 w-auto transition-opacity group-hover:opacity-80">\
     </a>\
     <div class="hidden md:flex items-center gap-1">\
@@ -57,12 +57,7 @@
       ' + navLink("casos-de-sucesso.html", "Casos de Sucesso") + '\
       ' + navLink("representantes.html", "Representantes") + '\
     </div>\
-    <div class="hidden md:flex items-center gap-3">\
-      <a href="' + WA_PRODUCT_URL + '" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-lg text-[13px] font-bold hover:bg-scientific-blue transition-all duration-200 shadow-sm hover:shadow-md">\
-        <span class="material-symbols-outlined text-[16px]" style="font-variation-settings:\'FILL\' 1;">chat</span>\
-        Fale Conosco\
-      </a>\
-    </div>\
+    <div class="hidden md:block flex-1"></div>\
     <button id="hamburger" class="md:hidden p-2 text-primary rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Abrir menu">\
       <span class="material-symbols-outlined">menu</span>\
     </button>\
@@ -219,14 +214,16 @@
   var navSplitWhite = document.getElementById("nav-split-white");
   var logoLink = navbar ? navbar.querySelector("a") : null;
 
-  var SKEW_PX = 20; // diagonal offset in pixels (diagonal slant width)
+  var SKEW_PX = 20; // largura da diagonal em pixels
 
   function updateSplitClip() {
     if (!navSplitWhite || !logoLink || !navbar) return;
     var navRect = navbar.getBoundingClientRect();
     var logoRect = logoLink.getBoundingClientRect();
-    // Right edge of logo relative to nav left, + a small gap
-    var cutX = logoRect.right - navRect.left + 16;
+    var logoLeft = logoRect.left - navRect.left;
+    var logoWidth = logoRect.width;
+    // Corte no meio do logo com diagonal dura
+    var cutX = logoLeft + logoWidth * 0.55;
     navSplitWhite.style.clipPath = [
       "polygon(0 0,", (cutX + SKEW_PX) + "px 0,", cutX + "px 100%,0 100%)"
     ].join("");

@@ -2,8 +2,8 @@
 
 /* Desktop */
 #hero {
-  height: 92vh;
-  min-height: 560px;
+  height: 78vh;
+  min-height: 480px;
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -16,9 +16,9 @@
 @media (max-width: 639px) {
   /* 100svh desconta a barra do browser; -4rem = navbar fixo (pt-16) */
   #hero {
-    height: calc(100svh - 4rem);
-    min-height: 480px;
-    max-height: 760px;
+    height: calc(82svh - 4rem);
+    min-height: 400px;
+    max-height: 640px;
   }
 
   /* Wrapper interno criado pelo JS */

@@ -64,13 +64,6 @@ var SLIDES = [
     });
     bgs.forEach(function (b) { wrapper.appendChild(b); });
 
-    var overlay = document.createElement("div");
-    overlay.style.cssText = [
-      "position:absolute;inset:0;pointer-events:none;",
-      "background:radial-gradient(ellipse at center, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.52) 100%),",
-      "linear-gradient(to bottom, rgba(12,41,101,0.35) 0%, rgba(12,41,101,0.20) 50%, rgba(12,41,101,0.50) 100%);",
-    ].join("");
-    wrapper.appendChild(overlay);
     wrapper.appendChild(progressTrack);
 
     var textWrap = document.createElement("div");
@@ -93,14 +86,14 @@ var SLIDES = [
 
     h1El = document.createElement("h1");
     h1El.style.cssText = [
-      "font-family:'Hanken Grotesk',sans-serif;font-weight:900;color:#fff;",
+      "font-family:'Hanken Grotesk',sans-serif;font-weight:900;color:#1a3f80;",
       "font-size:clamp(28px,4.5vw,46px);line-height:1.1;letter-spacing:-0.025em;margin-bottom:12px;",
-      "transition:opacity 0.4s ease,transform 0.4s ease;text-shadow:0 2px 24px rgba(0,0,0,0.3);",
+      "transition:opacity 0.4s ease,transform 0.4s ease;",
     ].join("");
 
     bodyEl = document.createElement("p");
     bodyEl.style.cssText = [
-      "color:rgba(255,255,255,0.72);font-size:clamp(14px,1.6vw,16px);line-height:1.6;",
+      "color:rgba(12,41,101,0.75);font-size:clamp(14px,1.6vw,16px);line-height:1.6;",
       "font-family:'Inter',sans-serif;margin-bottom:24px;",
       "transition:opacity 0.4s 0.08s ease,transform 0.4s 0.08s ease;",
     ].join("");

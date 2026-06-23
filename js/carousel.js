@@ -132,21 +132,50 @@ function initCarousel() {
      MOBILE — layout empilhado: imagem (contain) em cima + texto embaixo
      Estilo todo no CSS (#hero-mobile-* em index.css). Nada é cortado.
   ═══════════════════════════════════════════════════════════════ */
-  var mImg;
+  /* ═══════════════════════════════════════════════════════════════
+     MOBILE — full-bleed background-image + gradiente embaixo + texto base
+  ═══════════════════════════════════════════════════════════════ */
+  var mobileBgs = [];
   if (isMobile) {
+    // Slides de fundo (background-image cover)
+    mobileBgs = SLIDES.map(function (s, i) {
+      var el = document.createElement("div");
+      el.style.cssText = [
+        "position:absolute;inset:0;",
+        "background-image:url('" + s.image + "');",
+        "background-size:cover;background-position:center top;",
+        "opacity:" + (i === 0 ? "1" : "0") + ";",
+        "transition:opacity 1.1s cubic-bezier(0.4,0,0.2,1);",
+      ].join("");
+      wrapper.appendChild(el);
+      return el;
+    });
+
+    // Gradiente escuro na base para legibilidade do texto
+    var mOverlay = document.createElement("div");
+    mOverlay.style.cssText = [
+      "position:absolute;inset:0;pointer-events:none;",
+      "background:linear-gradient(to top,",
+      "rgba(10,30,80,0.88) 0%,",
+      "rgba(10,30,80,0.45) 45%,",
+      "transparent 75%);",
+    ].join("");
+    wrapper.appendChild(mOverlay);
+
     wrapper.appendChild(progressTrack);
 
-    var mStack = document.createElement("div");
-    mStack.id = "hero-mobile-stack";
+    // Dots indicadores (topo direito)
+    var mDots = document.createElement("div");
+    mDots.id = "hero-mobile-dots";
+    dots = SLIDES.map(function (_, i) {
+      var d = document.createElement("span");
+      if (i === 0) d.className = "active";
+      mDots.appendChild(d);
+      return d;
+    });
+    wrapper.appendChild(mDots);
 
-    var mImgWrap = document.createElement("div");
-    mImgWrap.id = "hero-mobile-imgwrap";
-    mImg = document.createElement("img");
-    mImg.id = "hero-mobile-img";
-    mImg.alt = "Produtos Axiōta";
-    mImg.src = SLIDES[0].imageMobile;
-    mImgWrap.appendChild(mImg);
-
+    // Bloco de texto na base
     var mText = document.createElement("div");
     mText.id = "hero-mobile-text";
 
@@ -164,22 +193,10 @@ function initCarousel() {
     mCta.href = "multimin-90.html";
     mCta.innerHTML = 'Ver Produtos <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
-    var mDots = document.createElement("div");
-    mDots.id = "hero-mobile-dots";
-    dots = SLIDES.map(function (_, i) {
-      var d = document.createElement("span");
-      if (i === 0) d.className = "active";
-      mDots.appendChild(d);
-      return d;
-    });
-
     mText.appendChild(labelEl);
     mText.appendChild(h1El);
     mText.appendChild(mCta);
-    mStack.appendChild(mImgWrap);
-    mStack.appendChild(mText);
-    wrapper.appendChild(mStack);
-    wrapper.appendChild(mDots);
+    wrapper.appendChild(mText);
   }
 
   /* ═══════════════════════════════════════════════════════════════
@@ -195,8 +212,6 @@ function initCarousel() {
       if (!isMobile) {
         bodyEl.style.opacity = "0";
         bodyEl.style.transform = "translateY(8px)";
-      } else if (mImg) {
-        mImg.style.opacity = "0";
       }
     }
 
@@ -206,9 +221,6 @@ function initCarousel() {
       if (!isMobile) {
         bodyEl.textContent = s.body;
         if (counterText) counterText.textContent = pad(idx + 1) + " / " + pad(SLIDES.length);
-      } else if (mImg) {
-        mImg.src = s.imageMobile;
-        mImg.style.opacity = "1";
       }
 
       h1El.style.opacity = "1";
@@ -222,6 +234,9 @@ function initCarousel() {
 
     if (!isMobile && bgs.length) {
       bgs.forEach(function (b, i) { b.style.opacity = i === idx ? "1" : "0"; });
+    }
+    if (isMobile && mobileBgs.length) {
+      mobileBgs.forEach(function (b, i) { b.style.opacity = i === idx ? "1" : "0"; });
     }
     if (isMobile && dots.length) {
       dots.forEach(function (d, i) { d.className = i === idx ? "active" : ""; });

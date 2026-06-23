@@ -13,12 +13,11 @@
    Baseado na pesquisa: "Banner que Quebra no Mobile" → Solução 3
    (imagem dedicada para mobile) + object-fit/contain para não cortar.
 ───────────────────────────────────────────────────────────────── */
-@media (max-width: 639px) {
-  /* 100svh desconta a barra do browser; -4rem = navbar fixo (pt-16) */
+@media (max-width: 767px) {
   #hero {
-    height: calc(82svh - 4rem);
-    min-height: 400px;
-    max-height: 640px;
+    height: calc(88svh - 4rem);
+    min-height: 480px;
+    max-height: 720px;
   }
 
   /* Wrapper interno criado pelo JS */
@@ -26,40 +25,16 @@
     position: relative;
     height: 100%;
     overflow: hidden;
-    background: #003F9E;
+    background: #0c2965;
   }
 
-  /* Coluna: imagem (flex-grow) + texto (altura natural) */
-  #hero-mobile-stack {
-    position: absolute;
-    inset: 0;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Área da imagem — ocupa o espaço acima do texto */
-  #hero-mobile-imgwrap {
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.75rem 0.75rem 0;
-  }
-
-  /* Imagem dos produtos — contain garante que NADA é cortado */
-  #hero-mobile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    transition: opacity 0.4s ease;
-  }
-
-  /* Bloco de texto — base, sobre fundo navy, nunca sobrepõe a imagem */
+  /* Texto ancorado na base sobre o gradiente */
   #hero-mobile-text {
-    flex: 0 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
     padding: 0 1.5rem 2rem;
     text-align: left;
   }
@@ -82,12 +57,10 @@
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 900;
     color: #fff;
-    /* rem no min/max + vw fluido = seguro p/ acessibilidade e zoom */
-    font-size: clamp(1.375rem, 1rem + 2.5vw, 1.875rem);
-    line-height: 1.18;
-    letter-spacing: -0.02em;
-    margin: 0 0 1.125rem;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    font-size: clamp(1.5rem, 1.1rem + 3vw, 2.25rem);
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.25rem;
     transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
@@ -103,11 +76,11 @@
     font-weight: 700;
     font-size: 14px;
     text-decoration: none;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    min-height: 44px; /* touch target — P2 da skill UI/UX */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    min-height: 44px;
   }
 
-  /* Indicador de slides — topo direito */
+  /* Dots — topo direito */
   #hero-mobile-dots {
     position: absolute;
     top: 1rem;
@@ -121,14 +94,14 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.35);
     transition: background 0.3s, transform 0.3s;
     display: block;
   }
 
   #hero-mobile-dots span.active {
     background: #fff;
-    transform: scale(1.25);
+    transform: scale(1.3);
   }
 }
 

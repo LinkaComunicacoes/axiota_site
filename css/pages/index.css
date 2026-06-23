@@ -15,28 +15,46 @@
 ───────────────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
   #hero {
-    height: calc(88svh - 4rem);
-    min-height: 480px;
-    max-height: 720px;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
   }
 
-  /* Wrapper interno criado pelo JS */
+  /* Wrapper flex-column criado pelo JS */
   #hero > div {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    background: #0c2965;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Texto ancorado na base sobre o gradiente */
+  /* Bloco de texto no topo — fundo navy */
   #hero-mobile-text {
+    background: #0c2965;
+    padding: 1.25rem 1.5rem 1.5rem;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  /* Dots no canto superior direito do bloco de texto */
+  #hero-mobile-dots {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    padding: 0 1.5rem 2rem;
-    text-align: left;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 6px;
+  }
+
+  #hero-mobile-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transition: background 0.3s, transform 0.3s;
+    display: block;
+  }
+
+  #hero-mobile-dots span.active {
+    background: #fff;
+    transform: scale(1.3);
   }
 
   #hero-mobile-label {
@@ -57,8 +75,8 @@
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 900;
     color: #fff;
-    font-size: clamp(1.5rem, 1.1rem + 3vw, 2.25rem);
-    line-height: 1.12;
+    font-size: clamp(1.3rem, 1rem + 3vw, 1.9rem);
+    line-height: 1.15;
     letter-spacing: -0.025em;
     margin: 0 0 1.25rem;
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -70,38 +88,22 @@
     gap: 8px;
     background: #fff;
     color: #0c2965;
-    padding: 12px 24px;
+    padding: 10px 22px;
     border-radius: 12px;
     font-family: 'Hanken Grotesk', sans-serif;
     font-weight: 700;
     font-size: 14px;
     text-decoration: none;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     min-height: 44px;
   }
 
-  /* Dots — topo direito */
-  #hero-mobile-dots {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 20;
-    display: flex;
-    gap: 6px;
-  }
-
-  #hero-mobile-dots span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.35);
-    transition: background 0.3s, transform 0.3s;
-    display: block;
-  }
-
-  #hero-mobile-dots span.active {
-    background: #fff;
-    transform: scale(1.3);
+  /* Wrapper da imagem — ocupa o resto do espaço disponível */
+  #hero-mobile-imgwrap {
+    position: relative;
+    height: calc(55svh - 4rem);
+    min-height: 240px;
+    overflow: hidden;
+    flex-shrink: 0;
   }
 }
 

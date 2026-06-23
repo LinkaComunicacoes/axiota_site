@@ -129,42 +129,18 @@ function initCarousel() {
   }
 
   /* ═══════════════════════════════════════════════════════════════
-     MOBILE — layout empilhado: imagem (contain) em cima + texto embaixo
-     Estilo todo no CSS (#hero-mobile-* em index.css). Nada é cortado.
+     MOBILE — texto em cima + imagem embaixo (empilhado)
   ═══════════════════════════════════════════════════════════════ */
-  /* ═══════════════════════════════════════════════════════════════
-     MOBILE — full-bleed background-image + gradiente embaixo + texto base
-  ═══════════════════════════════════════════════════════════════ */
-  var mobileBgs = [];
+  var mImgs = [];
   if (isMobile) {
-    // Slides de fundo (background-image cover)
-    mobileBgs = SLIDES.map(function (s, i) {
-      var el = document.createElement("div");
-      el.style.cssText = [
-        "position:absolute;inset:0;",
-        "background-image:url('" + s.imageMobile + "');",
-        "background-size:cover;background-position:center top;",
-        "opacity:" + (i === 0 ? "1" : "0") + ";",
-        "transition:opacity 1.1s cubic-bezier(0.4,0,0.2,1);",
-      ].join("");
-      wrapper.appendChild(el);
-      return el;
-    });
+    // Wrapper usa flex-column
+    wrapper.style.cssText = "display:flex;flex-direction:column;height:100%;overflow:hidden;";
 
-    // Gradiente escuro na base para legibilidade do texto
-    var mOverlay = document.createElement("div");
-    mOverlay.style.cssText = [
-      "position:absolute;inset:0;pointer-events:none;",
-      "background:linear-gradient(to top,",
-      "rgba(10,30,80,0.88) 0%,",
-      "rgba(10,30,80,0.45) 45%,",
-      "transparent 75%);",
-    ].join("");
-    wrapper.appendChild(mOverlay);
+    // Bloco de texto no topo (fundo navy)
+    var mText = document.createElement("div");
+    mText.id = "hero-mobile-text";
 
-    wrapper.appendChild(progressTrack);
-
-    // Dots indicadores (topo direito)
+    // Dots indicadores (topo direito dentro do bloco de texto)
     var mDots = document.createElement("div");
     mDots.id = "hero-mobile-dots";
     dots = SLIDES.map(function (_, i) {
@@ -173,11 +149,6 @@ function initCarousel() {
       mDots.appendChild(d);
       return d;
     });
-    wrapper.appendChild(mDots);
-
-    // Bloco de texto na base
-    var mText = document.createElement("div");
-    mText.id = "hero-mobile-text";
 
     labelEl = document.createElement("span");
     labelEl.id = "hero-mobile-label";
@@ -193,10 +164,34 @@ function initCarousel() {
     mCta.href = "multimin-90.html";
     mCta.innerHTML = 'Ver Produtos <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
+    mText.appendChild(mDots);
     mText.appendChild(labelEl);
     mText.appendChild(h1El);
     mText.appendChild(mCta);
     wrapper.appendChild(mText);
+
+    // Progress bar abaixo do texto
+    wrapper.appendChild(progressTrack);
+
+    // Bloco de imagem (flex-grow para preencher o resto)
+    var mImgWrap = document.createElement("div");
+    mImgWrap.id = "hero-mobile-imgwrap";
+
+    mImgs = SLIDES.map(function (s, i) {
+      var img = document.createElement("img");
+      img.src = s.imageMobile;
+      img.alt = s.label;
+      img.id = "hero-mobile-img-" + i;
+      img.style.cssText = [
+        "position:absolute;inset:0;width:100%;height:100%;",
+        "object-fit:cover;object-position:center top;",
+        "opacity:" + (i === 0 ? "1" : "0") + ";",
+        "transition:opacity 1.1s cubic-bezier(0.4,0,0.2,1);",
+      ].join("");
+      mImgWrap.appendChild(img);
+      return img;
+    });
+    wrapper.appendChild(mImgWrap);
   }
 
   /* ═══════════════════════════════════════════════════════════════
@@ -235,8 +230,8 @@ function initCarousel() {
     if (!isMobile && bgs.length) {
       bgs.forEach(function (b, i) { b.style.opacity = i === idx ? "1" : "0"; });
     }
-    if (isMobile && mobileBgs.length) {
-      mobileBgs.forEach(function (b, i) { b.style.opacity = i === idx ? "1" : "0"; });
+    if (isMobile && mImgs.length) {
+      mImgs.forEach(function (b, i) { b.style.opacity = i === idx ? "1" : "0"; });
     }
     if (isMobile && dots.length) {
       dots.forEach(function (d, i) { d.className = i === idx ? "active" : ""; });

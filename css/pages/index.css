@@ -134,8 +134,8 @@
   /* Wrapper da imagem */
   #hero-mobile-imgwrap {
     position: relative;
-    height: calc(46svh - 4rem);
-    min-height: 200px;
+    height: calc(54svh - 4rem);
+    min-height: 230px;
     overflow: hidden;
     flex-shrink: 0;
     background: #0c2965;

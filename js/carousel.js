@@ -22,14 +22,17 @@ var SLIDES = [
   },
 ];
 
-(function () {
+function initCarousel() {
   var root = document.getElementById("hero-carousel");
   if (!root) return;
+
+  // Limpa instância anterior (rebuild no resize de tipo)
+  root.innerHTML = "";
 
   var current = 0;
   var timer = null;
   var DURATION = 5500;
-  var isMobile = window.innerWidth < 640;
+  var isMobile = window.DeviceType ? window.DeviceType.isMobile : window.innerWidth < 768;
 
   var progressTrack = document.createElement("div");
   progressTrack.style.cssText = [
@@ -246,4 +249,10 @@ var SLIDES = [
 
   render(0, true);
   startTimer();
-})();
+}
+
+// Init inicial + rebuild automático quando tipo de dispositivo mudar
+initCarousel();
+if (window.DeviceType) {
+  window.DeviceType.onChange(function () { initCarousel(); });
+}

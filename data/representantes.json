@@ -1,0 +1,16 @@
+[
+  { "nome": "Milton Serapião",         "estado": "MT", "estadoNome": "Mato Grosso",         "cidade": "Campo Grande",       "telefone": "+55 11 98295-6026", "whatsapp": "5511982956026" },
+  { "nome": "Eduardo Siroto de Brito", "estado": "MT", "estadoNome": "Mato Grosso",         "cidade": "Alta Floresta",      "telefone": "+55 66 98436-4137", "whatsapp": "5566984364137" },
+  { "nome": "Everton Pereira",         "estado": "MS", "estadoNome": "Mato Grosso do Sul",  "cidade": "Montes Claros",      "telefone": "+55 38 99857-7050", "whatsapp": "5538998577050" },
+  { "nome": "Deomar Carvalho Jr",      "estado": "MS", "estadoNome": "Mato Grosso do Sul",  "cidade": "Inocência",          "telefone": "+55 18 99644-4090", "whatsapp": "5518996444090" },
+  { "nome": "Rafael Vicentini",        "estado": "MS", "estadoNome": "Mato Grosso do Sul",  "cidade": "Três Lagoas",        "telefone": "+55 18 99121-7217", "whatsapp": "5518991217217" },
+  { "nome": "Vinicius Gusmão",         "estado": "MS", "estadoNome": "Mato Grosso do Sul",  "cidade": "Dourados",           "telefone": "+55 67 98121-2961", "whatsapp": "5567981212961" },
+  { "nome": "Wagner Garcia",           "estado": "MS", "estadoNome": "Mato Grosso do Sul",  "cidade": "Campo Grande",       "telefone": "+55 67 98121-5996", "whatsapp": "5567981215996" },
+  { "nome": "Yuri Carneiro",           "estado": "GO", "estadoNome": "Goiás",               "cidade": "Goiânia",            "telefone": "+55 62 99856-6007", "whatsapp": "5562998566007" },
+  { "nome": "Wedson Maria Costa Jr.",  "estado": "GO", "estadoNome": "Goiás",               "cidade": "Uruaçu",             "telefone": "+55 62 99139-5958", "whatsapp": "5562991395958" },
+  { "nome": "Eduardo Hara",            "estado": "SP", "estadoNome": "São Paulo",           "cidade": "Araçatuba",          "telefone": "+55 18 99601-6371", "whatsapp": "5518996016371" },
+  { "nome": "Sylvio Di Jacintho",      "estado": "SP", "estadoNome": "São Paulo",           "cidade": "São José do Rio Preto", "telefone": "+55 17 99772-6801", "whatsapp": "5517997726801" },
+  { "nome": "Thiago Guzella",          "estado": "SP", "estadoNome": "São Paulo",           "cidade": "Botucatu",           "telefone": "+55 19 99753-7102", "whatsapp": "5519997537102" },
+  { "nome": "Marcelo Gallerani Peres", "estado": "SP", "estadoNome": "São Paulo",           "cidade": "Tabapuã",            "telefone": "+55 17 99741-2462", "whatsapp": "5517997412462" },
+  { "nome": "João Cavalcanti",         "estado": "AL", "estadoNome": "Alagoas",             "cidade": "Maceió",             "telefone": "+55 82 3142-9805",  "whatsapp": "558231429805"  }
+]

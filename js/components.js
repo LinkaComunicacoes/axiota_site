@@ -26,17 +26,19 @@
     return '<a href="' + href + '" class="' + base + state + '">' + label + "</a>";
   }
 
+  var repActive = isActive("representantes.html");
+
   var NAV_HTML = '\
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 border-b border-outline-variant nav-transparent" style="transition:background 0.35s,box-shadow 0.35s,border-color 0.35s;">\
   <div id="nav-bg-split" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:0;transition:opacity 0.45s ease;">\
     <div style="position:absolute;inset:0;background:#0c2965;"></div>\
     <div id="nav-split-white" style="position:absolute;inset:0;background:#fff;will-change:clip-path;transition:clip-path 0.1s;"></div>\
   </div>\
-  <div class="flex items-center justify-between w-full max-w-[1280px] mx-auto px-5 md:px-16 h-16 relative">\
-    <a href="index.html" class="flex items-center gap-3 shrink-0 group flex-1">\
+  <div id="nav-inner" style="display:flex;align-items:center;width:100%;max-width:1280px;margin:0 auto;padding:0 20px;height:64px;position:relative;">\
+    <a href="index.html" style="display:flex;align-items:center;gap:12px;flex-shrink:0;" class="group">\
       <img src="fotos/logo_axiota.png" alt="Axiōta Animal Health" class="h-9 w-auto transition-opacity group-hover:opacity-80">\
     </a>\
-    <div class="hidden md:flex items-center gap-1">\
+    <div id="nav-center-links" style="display:none;align-items:center;gap:4px;position:absolute;left:50%;transform:translateX(-50%);" class="nav-center">\
       ' + navLink("sobre.html", "Sobre a Axiōta") + '\
       <div class="nav-dropdown relative">\
         <button class="nav-link px-4 py-2 rounded-lg text-[13px] font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-all duration-200 flex items-center gap-1">\
@@ -55,12 +57,16 @@
         </div>\
       </div>\
       ' + navLink("casos-de-sucesso.html", "Casos de Sucesso") + '\
-      ' + navLink("representantes.html", "Representantes") + '\
     </div>\
-    <div class="hidden md:block flex-1"></div>\
-    <button id="hamburger" class="md:hidden p-2 text-primary rounded-lg hover:bg-surface-container-low transition-colors" aria-label="Abrir menu">\
-      <span class="material-symbols-outlined">menu</span>\
-    </button>\
+    <div style="display:flex;align-items:center;gap:12px;margin-left:auto;">\
+      <a id="nav-rep-btn" href="representantes.html" style="display:none;align-items:center;gap:6px;padding:7px 16px;border-radius:10px;font-size:13px;font-weight:700;border:2px solid #0c2965;color:#0c2965;text-decoration:none;transition:background 0.2s,color 0.2s,border-color 0.2s;white-space:nowrap;">\
+        <span class="material-symbols-outlined" style="font-size:15px;font-variation-settings:\'FILL\' 1;">location_on</span>\
+        Representantes\
+      </a>\
+      <button id="hamburger" style="padding:8px;border-radius:8px;border:none;background:none;cursor:pointer;color:#0c2965;" aria-label="Abrir menu" class="md:hidden">\
+        <span class="material-symbols-outlined">menu</span>\
+      </button>\
+    </div>\
   </div>\
 </nav>\
 \
@@ -152,7 +158,43 @@
 </a>';
 
   var navRoot = document.getElementById("site-nav");
-  if (navRoot) navRoot.innerHTML = NAV_HTML;
+  if (navRoot) {
+    navRoot.innerHTML = NAV_HTML;
+
+    // Show desktop nav elements (avoids Tailwind CDN class-generation issues)
+    var mq = window.matchMedia("(min-width: 768px)");
+    var centerLinks = document.getElementById("nav-center-links");
+    var repBtn = document.getElementById("nav-rep-btn");
+
+    function applyDesktopDisplay() {
+      var isDesktop = mq.matches;
+      if (centerLinks) centerLinks.style.display = isDesktop ? "flex" : "none";
+      if (repBtn) repBtn.style.display = isDesktop ? "flex" : "none";
+      var navInner = document.getElementById("nav-inner");
+      if (navInner) navInner.style.padding = isDesktop ? "0 64px" : "0 20px";
+    }
+    applyDesktopDisplay();
+    mq.addEventListener("change", applyDesktopDisplay);
+
+    // Style rep button active state
+    if (repBtn) {
+      if (repActive) {
+        repBtn.style.background = "#0c2965";
+        repBtn.style.color = "#fff";
+        repBtn.style.borderColor = "#0c2965";
+      } else {
+        repBtn.addEventListener("mouseenter", function () {
+          repBtn.style.background = "#0c2965";
+          repBtn.style.color = "#fff";
+        });
+        repBtn.addEventListener("mouseleave", function () {
+          repBtn.style.background = "";
+          repBtn.style.color = repBtn.dataset.splitActive ? "#fff" : "#0c2965";
+          repBtn.style.borderColor = repBtn.dataset.splitActive ? "rgba(255,255,255,0.7)" : "#0c2965";
+        });
+      }
+    }
+  }
 
   var footerRoot = document.getElementById("site-footer");
   if (footerRoot) footerRoot.innerHTML = FOOTER_HTML;
@@ -223,7 +265,7 @@
     var logoLeft = logoRect.left - navRect.left;
     var logoWidth = logoRect.width;
     // Corte no meio do logo com diagonal dura
-    var cutX = logoLeft + logoWidth * 0.55;
+    var cutX = logoLeft + logoWidth * 1.4;
     navSplitWhite.style.clipPath = [
       "polygon(0 0,", (cutX + SKEW_PX) + "px 0,", cutX + "px 100%,0 100%)"
     ].join("");
@@ -234,6 +276,7 @@
     var scrolled = window.scrollY > 40;
     var pastHero = hero ? hero.getBoundingClientRect().bottom <= 64 : scrolled;
 
+    var repBtnEl = document.getElementById("nav-rep-btn");
     if (pastHero) {
       navbar.style.background = "transparent";
       navbar.style.boxShadow = "0 1px 24px rgba(12,41,101,0.18)";
@@ -244,6 +287,11 @@
       navbar.querySelectorAll(".nav-link").forEach(function (el) {
         el.style.color = "rgba(255,255,255,0.85)";
       });
+      if (repBtnEl && !repActive) {
+        repBtnEl.style.borderColor = "rgba(255,255,255,0.7)";
+        repBtnEl.style.color = "#fff";
+        repBtnEl.dataset.splitActive = "1";
+      }
       if (hamburger) hamburger.style.color = "#fff";
     } else {
       navbar.style.background = scrolled ? "rgba(255,255,255,0.97)" : "#ffffff";
@@ -252,6 +300,11 @@
       if (navBgSplit) navBgSplit.style.opacity = "0";
       navbar.classList.remove("nav-split");
       navbar.querySelectorAll(".nav-link").forEach(function (el) { el.style.color = ""; });
+      if (repBtnEl && !repActive) {
+        repBtnEl.style.borderColor = "#0c2965";
+        repBtnEl.style.color = "#0c2965";
+        repBtnEl.dataset.splitActive = "";
+      }
       if (hamburger) hamburger.style.color = "";
     }
   }

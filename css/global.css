@@ -165,6 +165,59 @@ html, body {
   }
 }
 
+/* ── Hero produto — layout empilhado no mobile (igual ao carousel da home) ── */
+@media (max-width: 767px) {
+  .hero-product {
+    height: auto !important;
+    min-height: unset !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Bloco de imagem — vem embaixo do texto */
+  .hero-product-bg {
+    position: relative !important;
+    inset: unset !important;
+    order: 2;
+    height: calc(54svh - 4rem);
+    min-height: 230px;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-color: #0c2965;
+    flex-shrink: 0;
+  }
+
+  /* Bloco de texto — vem no topo com fundo navy */
+  .hero-product-content {
+    order: 1;
+    height: auto !important;
+    background: #0c2965;
+    padding: 0.875rem 1.5rem 1.25rem !important;
+    align-items: flex-start !important;
+    flex-shrink: 0;
+  }
+
+  /* Cores do texto adaptadas para fundo navy */
+  .hero-product-h1 {
+    color: #fff !important;
+    font-size: clamp(1.2rem, 0.9rem + 3vw, 1.7rem) !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero-product-p {
+    color: rgba(255,255,255,0.75) !important;
+    font-size: clamp(13px, 3.5vw, 16px) !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-product-cta {
+    min-height: 44px;
+    padding: 9px 20px !important;
+    border-radius: 10px !important;
+    font-size: 13px !important;
+  }
+}
+
 /* ── Hero section ── */
 #hero-carousel {
   height: 100%;

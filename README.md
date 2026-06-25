@@ -1,4 +1,4 @@
-# Axiōta Animal Health — Site Institucional
+﻿# Axiōta Animal Health — Site Institucional
 
 Site institucional da **Axiōta Animal Health**, marca guarda-chuva dos produtos **Multimin® 90** e **Lactipro®**.
 
@@ -18,7 +18,7 @@ multimin-site/
 ├── css/
 │   ├── global.css           # Estilos globais compartilhados
 │   └── pages/               # CSS específico por página
-├── fotos/                   # Imagens e assets visuais
+├── assets/img/                   # Imagens e assets visuais
 └── README.md
 ```
 
@@ -97,7 +97,7 @@ multimin-site/
 
 ---
 
-## Assets (`fotos/`)
+## Assets (`assets/img/`)
 
 | Arquivo | Uso |
 |---|---|

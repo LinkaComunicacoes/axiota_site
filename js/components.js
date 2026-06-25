@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   var WA_URL = "https://wa.me/5511975177592?text=Olá, gostaria de informações sobre os produtos da Axiōta Animal Health.";
   var WA_PRODUCT_URL = "https://wa.me/5511975177592?text=Olá, quero falar com um representante da Axiōta.";
 
@@ -36,7 +36,7 @@
   </div>\
   <div id="nav-inner" style="display:flex;align-items:center;width:100%;max-width:1280px;margin:0 auto;padding:0 20px;height:64px;position:relative;">\
     <a href="index.html" style="display:flex;align-items:center;gap:12px;flex-shrink:0;" class="group">\
-      <img src="fotos/logo_axiota.png" alt="Axiōta Animal Health" class="h-9 w-auto transition-opacity group-hover:opacity-80">\
+      <img src="assets/img/logo_axiota.png" alt="Axiōta Animal Health" class="h-9 w-auto transition-opacity group-hover:opacity-80">\
     </a>\
     <div id="nav-center-links" style="display:none;align-items:center;gap:4px;position:absolute;left:50%;transform:translateX(-50%);" class="nav-center">\
       ' + navLink("sobre.html", "Sobre a Axiōta") + '\
@@ -72,7 +72,7 @@
 \
 <div id="mobile-menu" class="fixed inset-y-0 right-0 w-72 bg-clinical-white z-[200] shadow-2xl flex flex-col md:hidden" style="transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);">\
   <div class="flex items-center justify-between p-6 border-b border-outline-variant">\
-    <img src="fotos/logo_axiota.png" alt="Axiōta" class="h-8 w-auto">\
+    <img src="assets/img/logo_axiota.png" alt="Axiōta" class="h-8 w-auto">\
     <button id="close-menu" class="p-1 text-on-surface-variant hover:text-primary rounded-lg transition-colors">\
       <span class="material-symbols-outlined">close</span>\
     </button>\
@@ -103,7 +103,7 @@
   <div class="max-w-[1280px] mx-auto">\
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">\
       <div class="md:col-span-2">\
-        <img src="fotos/logo_axiota.png" alt="Axiōta Animal Health" class="h-10 w-auto mb-4 brightness-0 invert">\
+        <img src="assets/img/logo_axiota.png" alt="Axiōta Animal Health" class="h-10 w-auto mb-4 brightness-0 invert">\
         <p class="text-sm text-white/60 max-w-xs leading-relaxed">Biotecnologia de precisão para saúde e desempenho animal bovino.</p>\
         <div class="flex gap-3 mt-6">\
           <a href="https://www.instagram.com/multiminbrasil?igsh=MTNya2R5ZWxrNWl6Nw==" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">\

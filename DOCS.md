@@ -1,4 +1,4 @@
-# Documentação Técnica — Axiōta Animal Health Site
+﻿# Documentação Técnica — Axiōta Animal Health Site
 
 > Última atualização: 2026-06-25  
 > Stack: HTML5 + Tailwind CSS CDN + Vanilla JS puro (sem build step)
@@ -88,8 +88,8 @@ axiotasite/
 │       ├── lactipro.css    ← (quase vazio — extensões futuras aqui)
 │       └── *.css           ← demais páginas
 │
-├── fotos/                  ← todas as imagens do site
-├── videos/                 ← vídeos MP4 locais
+├── assets/img/                  ← todas as imagens do site
+├── assets/video/                 ← vídeos MP4 locais
 ├── data/
 │   └── representantes.json ← dados dos representantes (lidos por JS)
 │
@@ -262,7 +262,7 @@ Para **ajustar o ângulo da diagonal**, altere `SKEW_PX = 20`.
 Array `SLIDES` define os 3 slides:
 ```js
 var SLIDES = [
-  { image: "fotos/...", imageMobile: "fotos/...", label: "...", title: "...", body: "..." },
+  { image: "assets/img/...", imageMobile: "assets/img/...", label: "...", title: "...", body: "..." },
   // ...
 ];
 ```
@@ -408,7 +408,7 @@ CSS em `global.css`: `translateY(-5px)` + sombra no hover.
 ```html
 <div class="relative rounded-2xl overflow-hidden" style="padding-bottom:56.25%;">
   <video
-    src="videos/arquivo.mp4"
+    src="assets/video/arquivo.mp4"
     controls
     preload="none"
     style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;">
@@ -420,7 +420,7 @@ O truque `padding-bottom: 56.25%` (= 9/16 × 100%) cria o container 16:9 respons
 ### CTA Final (padrão entre páginas)
 ```html
 <section class="relative overflow-hidden py-24 px-5 md:px-16 text-center">
-  <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('fotos/banner de fazenda.jpg');"></div>
+  <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('assets/img/banner de fazenda.jpg');"></div>
   <div class="absolute inset-0 bg-primary/90"></div>
   <div class="relative z-10 max-w-3xl mx-auto" data-reveal>
     <!-- título + CTA button -->
@@ -462,7 +462,7 @@ Ordem das seções:
 1. **Hero** — `.hero-product` com `banner-5-novo.png`
 2. **Benefícios** — grid 3 cards (navy bg)
 3. **Como funciona** — passos numerados (01, 02, 03)
-4. **Vídeo** — seção única com `videos/lactipro.mp4`
+4. **Vídeo** — seção única com `assets/video/lactipro.mp4`
 5. **Aplicação** — Dosagem e Administração
 6. **Referências** — referências bibliográficas
 7. **CTA Final**
@@ -497,14 +497,14 @@ Slide 2: banner-4-novo.png                      / banner-4-mobile.png
 Slide 3: banner-5-novo.png                      / banner-5-mobile.png
 ```
 
-**Para trocar um banner:** edite o array `SLIDES` em `carousel.js`. Coloque o novo arquivo em `fotos/`.
+**Para trocar um banner:** edite o array `SLIDES` em `carousel.js`. Coloque o novo arquivo em `assets/img/`.
 
 ### Vídeos — Regras
 
 - Formato: **MP4 apenas** (melhor compatibilidade cross-browser)
 - Todos usam `preload="none"` — não impactam carregamento inicial
 - `object-fit: cover` — não distorce independente da proporção
-- Pasta: `videos/`
+- Pasta: `assets/video/`
 - Nomenclatura: `produto-descricao-kebab-case.mp4`
 
 **Limite de tamanho no GitHub:** 100MB por arquivo (hard limit). Arquivos acima de 50MB geram aviso. Atualmente `lactipro.mp4` tem 96MB — próximo do limite. Se crescer, migrar para Git LFS ou CDN externo.
@@ -558,8 +558,8 @@ Slide 3: banner-5-novo.png                      / banner-5-mobile.png
 var SLIDES = [
   // ...slides existentes...
   {
-    image: "fotos/banner-novo-desktop.png",
-    imageMobile: "fotos/banner-novo-mobile.png",
+    image: "assets/img/banner-novo-desktop.png",
+    imageMobile: "assets/img/banner-novo-mobile.png",
     label: "Label do Badge",
     title: "Título do slide",
     body: "Texto descritivo do slide.",
@@ -584,8 +584,8 @@ grep -r "#0c2965" C:\axiotasite\*.html C:\axiotasite\js\ C:\axiotasite\css\
 
 ```html
 <!-- lactipro.html — seção VÍDEO -->
-<video src="videos/lactipro.mp4" ...>
-<!-- Substitua o arquivo em videos/ com o mesmo nome, ou altere o src -->
+<video src="assets/video/lactipro.mp4" ...>
+<!-- Substitua o arquivo em assets/video/ com o mesmo nome, ou altere o src -->
 ```
 
 ### Atualizar vídeos do Multimin

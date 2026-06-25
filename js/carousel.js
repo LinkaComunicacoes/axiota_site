@@ -1,21 +1,21 @@
-var SLIDES = [
+﻿var SLIDES = [
   {
-    image: "fotos/banner-produtos-multimin90-lactipro.png",
-    imageMobile: "fotos/banner-1-mobile.png",
+    image: "assets/img/banner-produtos-multimin90-lactipro.png",
+    imageMobile: "assets/img/banner-1-mobile.png",
     label: "Biotecnologia de Precisão",
     title: "Se livre do imprevisto e potencialize o desempenho do seu rebanho.",
     body: "A biologia não pode ser um risco na sua fazenda. Assuma o controle e converta seu investimento em lucro.",
   },
   {
-    image: "fotos/banner-4-novo.png",
-    imageMobile: "fotos/banner-4-mobile.png",
+    image: "assets/img/banner-4-novo.png",
+    imageMobile: "assets/img/banner-4-mobile.png",
     label: "Multimin® 90",
     title: "Microminerais injetáveis para o momento que mais exige do seu animal.",
     body: "Pico de absorção em 24h. Imunidade e desempenho quando o rebanho mais precisa.",
   },
   {
-    image: "fotos/banner-5-novo.png",
-    imageMobile: "fotos/banner-5-mobile.png",
+    image: "assets/img/banner-5-novo.png",
+    imageMobile: "assets/img/banner-5-mobile.png",
     label: "Lactipro®",
     title: "Elimine a acidose ruminal antes que ela elimine o seu lucro.",
     body: "Biotecnologia ruminal que atua diretamente na causa. Transição de dieta sem refugo de cocho.",

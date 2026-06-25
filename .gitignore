@@ -1,2 +1,24 @@
+# Pastas de trabalho — não fazem parte do site
+ajustes/
+multimin-site/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependências (se vier a usar Node)
+node_modules/
+
+# Artefatos de sistema Windows
 nul
 div

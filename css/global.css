@@ -181,7 +181,8 @@ html, body {
     order: 2;
     height: calc(54svh - 4rem);
     min-height: 230px;
-    background-size: contain !important;
+    background-size: cover !important;
+    background-position: right center !important;
     background-repeat: no-repeat !important;
     background-color: #0c2965;
     flex-shrink: 0;

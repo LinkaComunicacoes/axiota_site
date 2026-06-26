@@ -1,6 +1,6 @@
 ﻿var SLIDES = [
   {
-    image: "assets/img/banner-produtos-multimin90-lactipro.png",
+    image: "assets/img/NovaFoto-Banner1.png",
     imageMobile: "assets/img/banner-1-mobile.png",
     label: "Biotecnologia de Precisão",
     title: "Se livre do imprevisto e potencialize o desempenho do seu rebanho.",

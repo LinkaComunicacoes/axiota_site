@@ -54,6 +54,10 @@
             <span class="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center text-primary text-xs font-mono font-black">LP</span>\
             Lactipro®\
           </a>\
+          <a href="portfolio.html" class="flex items-center gap-3 px-4 py-3 text-sm font-semibold text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors">\
+            <span class="material-symbols-outlined text-base text-primary">grid_view</span>\
+            Portfólio Completo\
+          </a>\
         </div>\
       </div>\
       ' + navLink("casos-de-sucesso.html", "Casos de Sucesso") + '\
@@ -86,6 +90,7 @@
     ' + mobileNavLink("multimin-90.html", "Multimin® 90") + '\
     ' + mobileNavLink("lactipro.html", "Lactipro®") + '\
     ' + mobileNavLink("casos-de-sucesso.html", "Casos de Sucesso") + '\
+    ' + mobileNavLink("portfolio.html", "Portfólio Completo") + '\
     ' + mobileNavLink("representantes.html", "Representantes") + '\
   </nav>\
   <div class="p-4 border-t border-outline-variant">\
@@ -129,6 +134,7 @@
           <li><a href="multimin-90.html" class="footer-link">Multimin® 90</a></li>\
           <li><a href="lactipro.html" class="footer-link">Lactipro®</a></li>\
           <li><a href="microminerais.html" class="footer-link">Microminerais</a></li>\
+          <li><a href="portfolio.html" class="footer-link">Portfólio Completo</a></li>\
         </ul>\
       </div>\
       <div>\

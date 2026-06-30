@@ -104,7 +104,7 @@ function initCarousel() {
     var ctaEl = document.createElement("div");
     ctaEl.style.cssText = "display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-start;";
     ctaEl.innerHTML = [
-      '<a href="multimin-90.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0c2965;padding:10px 22px;border-radius:12px;font-family:\'Hanken Grotesk\',sans-serif;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.18);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform=\'translateY(-2px)\';this.style.boxShadow=\'0 8px 28px rgba(0,0,0,0.22)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'0 4px 20px rgba(0,0,0,0.18)\'">',
+      '<a href="portfolio.html" style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0c2965;padding:10px 22px;border-radius:12px;font-family:\'Hanken Grotesk\',sans-serif;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.18);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform=\'translateY(-2px)\';this.style.boxShadow=\'0 8px 28px rgba(0,0,0,0.22)\'" onmouseout="this.style.transform=\'\';this.style.boxShadow=\'0 4px 20px rgba(0,0,0,0.18)\'">',
       'Ver Produtos',
       '<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       '</a>',
@@ -161,7 +161,7 @@ function initCarousel() {
 
     var mCta = document.createElement("a");
     mCta.id = "hero-mobile-cta";
-    mCta.href = "multimin-90.html";
+    mCta.href = "portfolio.html";
     mCta.innerHTML = 'Ver Produtos <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
 
     mText.appendChild(mDots);
